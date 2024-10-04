@@ -4,10 +4,8 @@ class Solution {
         var dict = [Int: Int]()
 
         for i in 0..<nums.count {
-            if let idx = dict[nums[i]] {
-                if i - idx <= k {
-                    return true
-                }
+            if let idx = dict[nums[i]], i - idx <= k {
+                return true
             }
 
             dict[nums[i]] = i
