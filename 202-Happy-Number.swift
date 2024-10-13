@@ -2,7 +2,7 @@ class Solution {
     func isHappy(_ n: Int) -> Bool {
         guard n > 0 else { return false }
 
-        var slow = n
+        /*var slow = n
         var fast = n
 
         repeat {
@@ -11,7 +11,24 @@ class Solution {
             fast = square(fast)
         } while slow != fast
 
-        return fast == 1
+        return fast == 1 */
+
+        var set = Set<Int>()
+
+        var num = n
+
+        while num != 1 {
+
+            if set.contains(num) {
+                return false
+            }
+
+            set.insert(num) 
+
+            num = square(num) 
+        }
+
+        return true
         
     }
 
@@ -22,7 +39,7 @@ class Solution {
 
         while num > 0 {
             let n = num % 10
-            sum += (n * n)
+            sum += n * n
             num = num / 10
         }
 
